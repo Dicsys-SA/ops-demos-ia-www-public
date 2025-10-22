@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demos de Soluciones IA - Dicsys</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary-dark: #000033;
+            --color-primary-blue: #000077;
+            --color-primary-purple: #5522AA;
+            --color-accent-cyan: #55BBCC;
+            --color-accent-orange: #EE8844;
+            --color-accent-pink: #FF77AA;
+            --gradient-primary: linear-gradient(135deg, #5522AA 0%, #000077 50%, #000033 100%);
+            --gradient-secondary: linear-gradient(135deg, #55BBCC 0%, #5522AA 100%);
+            --gradient-accent: linear-gradient(135deg, #EE8844 0%, #FF77AA 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #FFFFFF;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            width: 1000px;
+            height: 1000px;
+            right: 45%;
+            top: -220px;
+            background: linear-gradient(120.51deg, #87D4FF 11.58%, #F3FFAC 82.42%);
+            opacity: 0.6;
+            filter: blur(250px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px 40px;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        .header .logo {
+            height: 60px;
+            width: auto;
+            filter: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding-top: 60px;
+        }
+
+        .page-header {
+            text-align: center;
+            color: var(--color-primary-dark);
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--color-primary-blue);
+        }
+
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--color-primary-purple);
+        }
+
+        .demo-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-type {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        .demo-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .demo-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-secondary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .demo-link:hover {
+            background: var(--gradient-accent);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(238, 136, 68, 0.4);
+        }
+
+        .demo-link i {
+            margin-left: 8px;
+        }
+
+        .assessment-section {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .assessment-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(85, 34, 170, 0.3);
+        }
+
+        .assessment-btn:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(238, 136, 68, 0.4);
+        }
+
+        .assessment-btn i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--color-primary-dark);
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .demos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .header .logo {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <img src="assets/img/dicsys_full_color_g.svg" alt="Dicsys Logo" class="logo">
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-rocket"></i> Soluciones IA</h1>
+            <p>Explora nuestras soluciones de inteligencia artificial para diferentes áreas de negocio</p>
+        </div>
+
+        <div class="demos-grid">
+            <!-- Demo 1: Screening CVs -->
+            <div class="demo-card">
+                <img src="assets/img/intro.png" alt="Screening CVs con IA" class="demo-image">
+                <div class="demo-content">
+                    <span class="demo-type"><i class="fas fa-robot"></i> Agente Autónomo</span>
+                    <h2 class="demo-title">Screening de CVs con Inteligencia Artificial</h2>
+                    <p class="demo-description">
+                        Sistema de screening de CVs basado en inteligencia artificial para agilizar la etapa inicial de
+                        reclutamiento mediante la clasificación y preselección automática de candidatos.
+                    </p>
+                    <a href="demo1/index.html" class="demo-link">
+                        Ver Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Demo 2: Chatbot HR -->
+            <div class="demo-card">
+                <img src="assets/img/hr-chatbot.png" alt="Chatbot HR Assistant" class="demo-image">
+                <div class="demo-content">
+                    <span class="demo-type"><i class="fas fa-comments"></i> Chatbot Conversacional</span>
+                    <h2 class="demo-title">Chatbot HR Assistant</h2>
+                    <p class="demo-description">
+                        Asistente virtual inteligente que automatiza respuestas a consultas frecuentes de RRHH sobre
+                        licencias, recibos, normativas internas y capacitaciones, reduciendo tiempos de respuesta.
+                    </p>
+                    <a href="demo2/index.html" class="demo-link">
+                        Ver Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Demo 3: Bot RAG -->
+            <div class="demo-card">
+                <img src="assets/img/hojas.png" alt="Generación de Documentación Técnica" class="demo-image">
+                <div class="demo-content">
+                    <span class="demo-type"><i class="fas fa-file-alt"></i> RAG (Retrieval-Augmented Generation)</span>
+                    <h2 class="demo-title">Generación de Documentación Técnica con IA</h2>
+                    <p class="demo-description">
+                        Sistema RAG que procesa documentos complejos como pliegos de licitaciones, contratos y manuales
+                        técnicos, extrayendo información clave y generando respuestas precisas.
+                    </p>
+                    <a href="demo3/index.html" class="demo-link">
+                        Ver Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Demo 4: ETL -->
+            <div class="demo-card">
+                <img src="assets/img/producto-demo4.png" alt="Automatización de Pruebas ETL" class="demo-image">
+                <div class="demo-content">
+                    <span class="demo-type"><i class="fas fa-cogs"></i> Agente de Validación</span>
+                    <h2 class="demo-title">Automatización de Pruebas y Validaciones de Procesos</h2>
+                    <p class="demo-description">
+                        Solución que automatiza la validación de procesos ETL/ELT, detectando errores silenciosos y
+                        garantizando la calidad de datos antes de que impacten en reportes de negocio.
+                    </p>
+                    <a href="demo4/index.html" class="demo-link">
+                        Ver Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Demo 5: Marketing -->
+            <div class="demo-card">
+                <img src="assets/img/marketing.png" alt="Motor de Contenido Automático" class="demo-image">
+                <div class="demo-content">
+                    <span class="demo-type"><i class="fas fa-magic"></i> Agente de Generación de Contenido</span>
+                    <h2 class="demo-title">Motor de Contenido Automático para Redes Sociales</h2>
+                    <p class="demo-description">
+                        Plataforma que automatiza la creación y adaptación de contenido para múltiples canales
+                        digitales, manteniendo consistencia de marca y alta frecuencia de publicación.
+                    </p>
+                    <a href="demo5/index.html" class="demo-link">
+                        Ver Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Demo 6: Contabilidad -->
+            <div class="demo-card">
+                <img src="assets/img/producto-contabilidad.png" alt="Verificación de Comprobantes" class="demo-image">
+                <div class="demo-content">
+                    <span class="demo-type"><i class="fas fa-eye"></i> Vision AI</span>
+                    <h2 class="demo-title">Verificación automática de Comprobantes con Vision AI</h2>
+                    <p class="demo-description">
+                        Sistema de visión artificial que automatiza la extracción y validación de datos de comprobantes
+                        fiscales, eliminando errores manuales y acelerando el ciclo de pago.
+                    </p>
+                    <a href="demo6/index.html" class="demo-link">
+                        Ver Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="assessment-section">
+            <a href="assesment.html" class="assessment-btn">
+                <i class="fas fa-clipboard-check"></i> Realizar Assessment
+            </a>
+        </div>
+
+        <footer>
+            <p>© 2025 Dicsys SA. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

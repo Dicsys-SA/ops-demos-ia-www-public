@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment de Inteligencia Artificial - Dicsys</title>
+    <style>
+        :root {
+            --color-primary-dark: #000033;
+            --color-primary-blue: #000077;
+            --color-primary-purple: #5522AA;
+            --color-accent-cyan: #55BBCC;
+            --color-accent-orange: #EE8844;
+            --color-accent-pink: #FF77AA;
+            --gradient-primary: linear-gradient(135deg, #5522AA 0%, #000077 50%, #000033 100%);
+            --gradient-secondary: linear-gradient(135deg, #55BBCC 0%, #5522AA 100%);
+            --gradient-accent: linear-gradient(135deg, #EE8844 0%, #FF77AA 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #FFFFFF;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            width: 1000px;
+            height: 1000px;
+            right: 45%;
+            top: -220px;
+            background: linear-gradient(120.51deg, #87D4FF 11.58%, #F3FFAC 82.42%);
+            opacity: 0.6;
+            filter: blur(250px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--color-primary-dark);
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header-logo {
+            max-width: 300px;
+            height: auto;
+            background: transparent;
+        }
+
+        .header-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: none;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            color: var(--color-primary-blue);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .section h2 {
+            color: var(--color-primary-dark);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .assessment-icon {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .results-icon {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .subsection {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-left: 4px solid var(--color-primary-purple);
+            background: rgba(85, 34, 170, 0.05);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .subsection h3 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subsection p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+            color: #4a5568;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .highlight-box h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(85, 187, 204, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(238, 136, 68, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--color-primary-dark);
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 25px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(85, 34, 170, 0.3);
+            margin: 40px auto;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(85, 34, 170, 0.5);
+            border-color: var(--color-accent-cyan);
+            background: var(--gradient-secondary);
+        }
+
+        .nav-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(85, 34, 170, 0.4);
+        }
+
+        .nav-btn i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-btn:hover i {
+            transform: rotate(-15deg) scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="assets/img/dicsys_full_color_g.svg" class="header-logo" />
+            <div class="header-content">
+                <h1><span style="background: none; -webkit-text-fill-color: initial;">🤖</span> Assessment de IA</h1>
+                <p>Descubre el potencial de la IA en tu organización con Dicsys</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>
+                    <div class="icon assessment-icon">🔍</div>
+                    ¿Qué Hacemos en el Assessment?
+                </h2>
+
+                <div class="subsection">
+                    <h3>Alcance del Assessment</h3>
+                    <ul class="feature-list">
+                        <li>Entrevistas con Roles Clave (3 a 7 personas)</li>
+                        <li>Relevamiento de 2 a 3 Procesos Core</li>
+                        <li>Validación Superficial de Datos</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Análisis Integral de Procesos/Datos</h3>
+                    <p>Realizamos un diagnóstico completo de los casos seleccionados, identificando oportunidades de
+                        optimización y automatización mediante IA.</p>
+                    <ul class="feature-list">
+                        <li>Auditoría de fuentes de datos existentes</li>
+                        <li>Evaluación de calidad y consistencia de datos</li>
+                        <li>Identificación de gaps y oportunidades</li>
+                        <li>Análisis de procesos actuales</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Evaluación de Casos de Uso IA</h3>
+                    <p>Identificamos los casos de uso más prometedores donde la IA puede generar valor inmediato en tu
+                        organización.</p>
+                    <ul class="feature-list">
+                        <li>Custom AI Agent</li>
+                        <li>Automatización de procesos</li>
+                        <li>Análisis de patrones y anomalías</li>
+                        <li>Optimización de recursos</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Arquitectura y Roadmap Tecnológico</h3>
+                    <p>Diseñamos la arquitectura óptima para implementar soluciones de IA y creamos un roadmap
+                        estratégico.</p>
+                    <ul class="feature-list">
+                        <li>Diseño de arquitectura de datos</li>
+                        <li>Selección de tecnologías IA</li>
+                        <li>Planificación de fases de implementación</li>
+                        <li>Estimación de beneficios</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>⚡ Proceso Ágil</h4>
+                    <p>Assessment completo en 2 semanas con metodología probada</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>
+                    <div class="icon results-icon">📊</div>
+                    Resultados y Entregables
+                </h2>
+
+                <div class="subsection">
+                    <h3>Informe Ejecutivo de Assessment</h3>
+                    <p>Documento estratégico con hallazgos clave y recomendaciones para la alta dirección.</p>
+                    <ul class="feature-list">
+                        <li>Estado actual vs. potencial de IA</li>
+                        <li>Casos de uso priorizados por impacto</li>
+                        <li>Roadmap estratégico a 2-6 meses</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Prueba de Concepto</h3>
+                    <p>Demostración práctica de una solución de IA que valide la viabilidad técnica del <u>caso de uso
+                            priorizado.</u></p>
+                    <ul class="feature-list">
+                        <li>Modelo de AI con datos de muestra</li>
+                        <li>Plataforma/Dashboard interactivo de resultados</li>
+                        <li>API funcional para integración</li>
+                        <li>Documentación técnica completa</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Plan de Implementación Detallado</h3>
+                    <p>Hoja de ruta práctica para llevar las soluciones de IA a producción.</p>
+                    <ul class="feature-list">
+                        <li>Arquitectura técnica recomendada</li>
+                        <li>Cronograma de implementación</li>
+                        <li>Recursos y presupuesto necesarios</li>
+                        <li>Métricas de éxito y KPIs</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>🎯 Valor Inmediato</h4>
+                    <p>Prueba de concepto + roadmap ejecutable</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="demos.html" class="nav-btn">
+                <i class="fas fa-home"></i> Volver al Índice
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Dicsys - Líderes en Analítica de Datos e Inteligencia Artificial</p>
+        </div>
+    </div>
+
+    <script>
+        // Animación suave al hacer scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            sections.forEach((section) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Efecto hover en las subsecciones
+            const subsections = document.querySelectorAll('.subsection');
+            subsections.forEach(subsection => {
+                subsection.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateX(10px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+
+                subsection.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

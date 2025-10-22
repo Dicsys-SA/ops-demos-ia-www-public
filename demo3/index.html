@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Documentación Técnica con IA - Dicsys</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="../assets/img/dicsys_full_color_g.svg" alt="Dicsys Logo" class="logo">
+    </header>
+
+    <!-- Slides Container -->
+    <div class="slides-container">
+        <div class="hero-area"></div>
+        <!-- Slide 1: El Problema -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content">
+                <h1 class="slide-title">
+                    <i class="fas fa-exclamation-triangle"></i> El Problema: La Barrera de los Documentos Complejos
+                </h1>
+
+                <div class="intro-text">
+                    Las organizaciones se enfrentan a un volumen masivo de información contenida en documentos que son
+                    difíciles y costosos de procesar manualmente.
+                </div>
+
+                <div class="two-column">
+                    <div class="card highlight">
+                        <h2><i class="fas fa-exclamation-circle"></i> Problemas Centrales</h2>
+                        <ul class="problem-list">
+                            <li>
+                                <i class="fas fa-inbox"></i>
+                                <div>
+                                    <strong>Sobrecarga de Información:</strong>
+                                    <span>Documentos como pliegos de licitaciones, contratos, manuales de políticas o
+                                        informes técnicos son extensos y densos. Extraer datos clave requiere horas de
+                                        lectura por parte de personal especializado.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Proceso Lento y Manual:</strong>
+                                    <span>La revisión y el análisis dependen completamente de la disponibilidad y
+                                        velocidad
+                                        de las personas. Esto genera cuellos de botella, retrasa proyectos y aumenta los
+                                        costos operativos.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <strong>Riesgo de Error Humano:</strong>
+                                    <span>La fatiga o la falta de atención pueden llevar a omitir requisitos críticos en
+                                        una
+                                        licitación, malinterpretar una cláusula en una política o pasar por alto riesgos
+                                        en
+                                        un contrato. Estos errores pueden tener consecuencias financieras y legales
+                                        significativas.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-database"></i>
+                                <div>
+                                    <strong>Información Desaprovechada:</strong>
+                                    <span>Mucha de la información valiosa dentro de estos documentos no se utiliza
+                                        porque es
+                                        inaccesible. No se puede consultar, medir o convertir fácilmente en una tarea o
+                                        un
+                                        indicador clave (KPI).</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="image-container">
+                        <img src="../assets/img/botrag-demo3-problem.png"
+                            alt="Problema de documentos complejos" class="zoomable" style="max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: La Solución -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content scrollable">
+                <h1 class="slide-title">
+                    <i class="fas fa-lightbulb"></i> La Solución: Plataforma de Análisis Inteligente
+                </h1>
+
+                <div class="intro-text">
+                    Una solución de análisis de documentos complejos automatiza el proceso de "lectura, comprensión y
+                    estructuración" de la información.
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-cogs"></i> Cómo Funciona</h2>
+                    <ul class="solution-list">
+                        <li>
+                            <i class="fas fa-file-import"></i>
+                            <div>
+                                <strong>1. Ingesta del Documento</strong>
+                                <p>La plataforma recibe los documentos en su formato original (PDF, Word, etc.). Si el
+                                    documento es una imagen o un escaneo, utiliza tecnología de <strong>Reconocimiento
+                                        Óptico de Caracteres (OCR)</strong> para convertirlo en texto.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <strong>2. Procesamiento y Comprensión (El núcleo de la IA)</strong>
+                                <p><strong>Segmentación y Vectorización:</strong> El sistema descompone el documento en
+                                    fragmentos más pequeños (párrafos, secciones). Luego, un modelo de IA convierte el
+                                    significado semántico de cada fragmento en un formato numérico llamado "embedding" o
+                                    vector.</p>
+                                <p><strong>Base de Datos Vectorial:</strong> Estos vectores se almacenan en una base de
+                                    datos especializada que permite buscar información por su significado o contexto, no
+                                    solo por palabras clave.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-magic"></i>
+                            <div>
+                                <strong>3. Extracción y Generación de Salidas</strong>
+                                <p>Utilizando la base de datos vectorial, la IA localiza rápidamente todas las partes
+                                    relevantes del documento relacionadas con una tarea específica (ej: "identificar las
+                                    responsabilidades", "listar los requisitos técnicos").</p>
+                                <p>Un <strong>Modelo de Lenguaje Grande (LLM)</strong>, como Gemini, recibe estos
+                                    fragmentos relevantes y genera los entregables estructurados que el usuario
+                                    necesita.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="image-container">
+                    <h3><i class="fas fa-sitemap"></i> Arquitectura del Sistema</h3>
+                    <img src="../assets/img/botrag-demo3-architecture.png"
+                        alt="Arquitectura del sistema de análisis de documentos" class="zoomable" style="width: 80%;">
+                    <p class="image-caption">Arquitectura completa del sistema de análisis inteligente</p>
+                    <br /><br />
+                    <img src="../assets/img/botrag-demo3-flow.png"
+                        alt="Flujo de procesamiento" class="zoomable" style="width: 80%;">
+                    <p class="image-caption">Flujo de procesamiento de documentos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Beneficios -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content scrollable">
+                <h1 class="slide-title">
+                    <i class="fas fa-trophy"></i> Los Beneficios: De la Información al Valor Real
+                </h1>
+
+                <div class="intro-text">
+                    Implementar una solución de este tipo ofrece ventajas estratégicas y operativas directas.
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Reducción Drástica de Tiempos</h3>
+                        <p>Lo que a un equipo le tomaría días o semanas analizar, la IA lo hace en minutos. Esto acelera
+                            la toma de decisiones, la preparación de propuestas y la puesta en marcha de proyectos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Aumento de la Precisión y Reducción de Riesgos</h3>
+                        <p>Al automatizar la extracción de datos, se minimizan los errores humanos. Se asegura que no se
+                            omitan requisitos clave, cláusulas legales o responsabilidades, mejorando el cumplimiento
+                            normativo y la gestión de contratos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                        <h3>Liberación de Recursos Estratégicos</h3>
+                        <p>Permite que los empleados (analistas de negocio, gerentes de proyecto, personal de RRHH)
+                            dejen de hacer tareas manuales y repetitivas para enfocarse en actividades de mayor valor,
+                            como la estrategia, la negociación o la gestión de talento.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>Democratización del Conocimiento</h3>
+                        <p>La información compleja se vuelve accesible para más personas. Un gerente puede entender
+                            rápidamente los puntos clave de un pliego sin tener que leer las 200 páginas, y un empleado
+                            puede consultar una política a través de una interfaz simple como un chatbot.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Escalabilidad y Consistencia</h3>
+                        <p>La solución puede procesar un volumen creciente de documentos sin degradar su rendimiento y
+                            asegura que el análisis se realice siempre con los mismos criterios, estandarizando los
+                            resultados.</p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 40px;">
+                    <h2><i class="fas fa-file-contract"></i> Caso: Pliego de Licitación</h2>
+                    <h3><i class="fas fa-tasks"></i> Análisis Automatizado de Licitaciones</h3>
+                    <p>La IA analiza todo el texto del pliego, extrae los requisitos funcionales y no funcionales,
+                        agrupa las tareas en <strong>bloques y componentes</strong>, y genera una estructura base para
+                        el <strong>diagrama de Gantt y la estimación de fases y duración</strong>.</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="image-full-width">
+                        <h3><i class="fas fa-list-check"></i>Pliego de Licitación (input)</h3>
+                        <img src="../assets/img/botrag-demo3-extraction.png"
+                            alt="Extracción de requisitos del pliego" class="zoomable">
+                        <p class="image-caption">Identificación automática de requisitos y tareas</p>
+                    </div>
+                    <div class="image-full-width">
+                        <h3><i class="fas fa-project-diagram"></i> Visor Ejecutivo (output)</h3>
+                        <img src="../assets/img/botrag-demo3-structure.png"
+                            alt="Estructura del proyecto" class="zoomable">
+                        <p class="image-caption">Organización en bloques y componentes</p>
+                    </div>
+                </div>
+
+                <div class="image-full-width">
+                    <h3><i class="fas fa-calendar-alt"></i> Visor Ejecutivo - Diagrama (output)</h3>
+                    <img src="../assets/img/botrag-demo3-gantt.png" alt="Diagrama de Gantt"
+                        class="zoomable" style="width: 70%;">
+                    <p class="image-caption">Distribucion de Componenetes y etapas en el Tiempo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Caso Pliego de Licitación -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content scrollable">
+                <h1 class="slide-title">
+                    <i class="fas fa-file-contract"></i> Caso: Pliego de Licitación
+                </h1>
+
+                <div class="card">
+                    <h2><i class="fas fa-tasks"></i> Análisis Automatizado de Licitaciones</h2>
+                    <p>La IA analiza todo el texto del pliego, extrae los requisitos funcionales y no funcionales,
+                        agrupa las tareas en <strong>bloques y componentes</strong>, y genera una estructura base para
+                        el <strong>diagrama de Gantt y la estimación de fases y duración</strong>.</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="image-full-width">
+                        <h3><i class="fas fa-list-check"></i> Extracción de Requisitos</h3>
+                        <img src="../assets/img/botrag-demo3-extraction.png"
+                            alt="Extracción de requisitos del pliego" class="zoomable">
+                        <p class="image-caption">Identificación automática de requisitos y tareas</p>
+                    </div>
+                    <div class="image-full-width">
+                        <h3><i class="fas fa-project-diagram"></i> Estructura de Proyecto</h3>
+                        <img src="../assets/img/botrag-demo3-structure.png"
+                            alt="Estructura del proyecto" class="zoomable">
+                        <p class="image-caption">Organización en bloques y componentes</p>
+                    </div>
+                </div>
+
+                <div class="image-full-width">
+                    <h3><i class="fas fa-calendar-alt"></i> Diagrama de Gantt Generado</h3>
+                    <img src="../assets/img/botrag-demo3-gantt.png" alt="Diagrama de Gantt"
+                        class="zoomable">
+                    <p class="image-caption">Planificación temporal automática del proyecto</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Caso Política de la Empresa -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content scrollable">
+                <h1 class="slide-title">
+                    <i class="fas fa-book"></i> Caso: Política de la Empresa
+                </h1>
+
+                <div class="card">
+                    <h2><i class="fas fa-clipboard-check"></i> Análisis de Políticas Corporativas</h2>
+                    <p>La IA lee el documento de política, identifica las acciones, los responsables y las condiciones,
+                        y luego genera automáticamente el <strong>dashboard de cumplimiento, el diagrama de flujo y el
+                            checklist</strong>, resumiendo los objetivos y roles en el proceso.</p>
+                </div>
+                <div class="two-column">
+                    <div class="image-full-width">
+                        <h3><i class="fas fa-chart-pie"></i> Politica de Cumplimiento</h3>
+                        <img src="../assets/img/botrag-demo3-compliance.png"
+                            alt="Dashboard de cumplimiento" class="zoomable">
+                        <p class="image-caption">Visualización de métricas de cumplimiento de políticas</p>
+                    </div>
+                    <div class="image-full-width">
+                        <h3><i class="fas fa-sitemap"></i>Resumen Ejecutivo (output)</h3>
+                        <img src="../assets/img/botrag-demo3-summary.png"
+                            alt="Diagrama de flujo de proceso" class="zoomable">
+                        <p class="image-caption">Puntos claves del proceso y aspectos más relevantes</p>
+                    </div>
+                </div>
+
+
+                
+                    <div class="image-full-width">
+                        <h3><i class="fas fa-list-ul"></i>Diagrama de Flujo (output)</h3>
+                        <img src="../assets/img/botrag-demo3-flowchart.png"
+                            alt="Checklist de cumplimiento" class="zoomable" style="width: 70%;">
+                        <p class="image-caption">Flujo de proceso extraído de la política</p>
+                    </div>
+                
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <i class="fas fa-chevron-down"></i> Desplázate para ver más contenido
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="navigation">
+        <div class="nav-left">
+            <p class="copyright">© 2025 Dicsys SA.</p>
+        </div>
+
+        <div class="nav-center">
+            <button id="prevBtn" class="nav-btn" disabled>
+                <i class="fas fa-chevron-left"></i> Anterior
+            </button>
+
+            <div class="dots-container" id="dotsContainer"></div>
+
+            <button id="nextBtn" class="nav-btn">
+                Siguiente <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="nav-right">
+            <a href="../demos.html" class="nav-btn" style="text-decoration: none;">
+                <i class="fas fa-home"></i> Volver al Índice
+            </a>
+        </div>
+    </div>
+
+    <!-- Image Zoom Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="zoom-controls">
+            <button id="zoomIn"><i class="fas fa-search-plus"></i></button>
+            <button id="zoomOut"><i class="fas fa-search-minus"></i></button>
+            <button id="zoomReset"><i class="fas fa-compress"></i></button>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
+

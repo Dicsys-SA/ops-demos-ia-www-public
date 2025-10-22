@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatización de Pruebas y Validaciones de Procesos - Dicsys</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="../assets/img/dicsys_full_color_g.svg" alt="Dicsys Logo" class="logo">
+    </header>
+
+    <!-- Slides Container -->
+    <div class="slides-container">
+        <div class="hero-area"></div>
+        <!-- Slide 1: Problema -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content">
+                <h1 class="slide-title">
+                    <i class="fas fa-exclamation-triangle"></i> Automatización de pruebas y validaciones de Procesos
+                </h1>
+
+                <div class="content-grid">
+                    <div class="card highlight">
+                        <h2><i class="fas fa-bug"></i> Problemática Detectada</h2>
+                        <p>En cualquier proceso de datos (ETL/ELT), las transformaciones son el punto más frágil. Los
+                            errores, aunque pequeños, se acumulan y corrompen el resultado final. Los problemas clave
+                            son:</p>
+                        <ul class="problem-list">
+                            <li>
+                                <i class="fas fa-volume-mute"></i>
+                                <div>
+                                    <strong>Errores Silenciosos:</strong>
+                                    <span>Muchos errores no detienen el proceso de carga. Un NULL inesperado, un espacio
+                                        extra o una inconsistencia de mayúsculas/minúsculas no generan una falla
+                                        técnica, pero sí producen cálculos incorrectos o duplicados sutiles en los
+                                        reportes.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Detección Tardía y Costosa:</strong>
+                                    <span>Generalmente, estos problemas son descubiertos por los usuarios de negocio
+                                        días o semanas después, cuando un reporte muestra cifras ilógicas. Encontrar la
+                                        causa raíz implica una costosa "arqueología de datos" hacia atrás en el
+                                        proceso.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-redo"></i>
+                                <div>
+                                    <strong>Esfuerzo Manual Repetitivo:</strong>
+                                    <span>Los equipos de datos invierten una cantidad enorme de tiempo escribiendo y
+                                        manteniendo pruebas manuales (scripts de SQL, asserts en Python) para validar
+                                        cada posible error. Este proceso es tedioso, no escala bien y es propenso a
+                                        olvidar casos de prueba.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-heart-broken"></i>
+                                <div>
+                                    <strong>Pérdida de Confianza:</strong>
+                                    <span>El problema más grave. Cuando los líderes no pueden confiar en los datos que
+                                        ven en los dashboards, toda la infraestructura de Business Intelligence pierde
+                                        su valor estratégico. Las decisiones se vuelven a tomar por intuición en lugar
+                                        de por datos.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h2><i class="fas fa-info-circle"></i> Descripción</h2>
+                        <div class="description-content">
+                            <img src="../assets/img/producto-demo4.png" alt="Sistema de Validación de Datos con IA" class="intro-image"
+                                style="max-width: 70%;">
+                        </div>
+                        <div class="description-content">
+                            <div class="description-text">
+                                <p><strong>IA para generar y ejecutar pruebas automáticas</strong> que validen calidad e
+                                    integridad de datos durante las cargas.</p>
+                                <p>Sistema inteligente que actúa como un experto en calidad de datos que nunca duerme,
+                                    integrándose directamente en el pipeline de datos para validar, diagnosticar e
+                                    incluso sugerir correcciones.</p>
+                            </div>
+
+                        </div>
+                        <div class="benefits-tags">
+                            <span class="tag"><i class="fas fa-check"></i> Validación automática</span>
+                            <span class="tag"><i class="fas fa-check"></i> Detección proactiva</span>
+                            <span class="tag"><i class="fas fa-check"></i> Confianza en datos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Solución -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content scrollable">
+                <h1 class="slide-title">
+                    <i class="fas fa-robot"></i> Solución: Un Analista de Calidad de Datos Autónomo
+                </h1>
+
+                <div class="card">
+                    <h2><i class="fas fa-cogs"></i> Componentes Clave del Sistema</h2>
+                    <p>Implementamos un sistema de IA que garantiza la confiabilidad de su información de forma
+                        automática y proactiva.</p>
+                    <div class="components-grid">
+                        <div class="component-item">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <strong>Generación Inteligente de Controles</strong>
+                                <p>La IA aprende las reglas de sus datos y genera automáticamente las validaciones de
+                                    calidad necesarias, asegurando una cobertura total sin esfuerzo manual.</p>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Detección Proactiva en Tiempo Real</strong>
+                                <p>Intercepta errores, inconsistencias y anomalías sutiles durante el procesamiento,
+                                    antes de que lleguen a contaminar los reportes y dashboards críticos.</p>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <i class="fas fa-search"></i>
+                            <div>
+                                <strong>Diagnóstico y Resolución Acelerada</strong>
+                                <p>No solo alerta sobre un problema. Identifica la causa raíz exacta y recomienda la
+                                    solución, reduciendo el tiempo de investigación de días a minutos.</p>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <strong>Sugerencia de Código para Corrección Inmediata</strong>
+                                <p>La IA va un paso más allá: genera el fragmento de código (SQL, Python) específico
+                                    para solucionar el problema, permitiendo a los desarrolladores aplicar la solución.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-full-width">
+                    <h3><i class="fas fa-sitemap"></i> Arquitectura del Sistema de Validación con IA</h3>
+                    <img src="../assets/img/qa_arquitectura.png"
+                        alt="Arquitectura del sistema de validación automática" class="zoomable" style="width: 80%;">
+                    <p class="image-caption">Sistema integrado de validación y control de calidad de datos</p>
+                </div>
+                <div class="image-full-width">
+                    <h3><i class="fas fa-sitemap"></i> Plataforma de la solución</h3>
+                    <img src="../assets/img/etl-demo4-architecture.png"
+                        alt="Arquitectura del sistema de validación automática" class="zoomable" style="width: 80%;">
+                    <p class="image-caption">Sistema integrado de validación y control de calidad de datos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Beneficios -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content scrollable">
+                <h1 class="slide-title">
+                    <i class="fas fa-trophy"></i> Beneficios
+                </h1>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                        <h3>Máxima Confiabilidad de los Datos</h3>
+                        <p>Las validaciones proactivas y automáticas garantizan que los datos que llegan a los reportes
+                            son precisos y consistentes, restaurando la confianza en toda la organización.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Detección y Resolución Ultra-Rápida</h3>
+                        <p>Los problemas se identifican y solucionan en minutos, durante la ejecución del proceso, en
+                            lugar de semanas después. Enfoque "shift-left" para la calidad de datos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Reducción del Esfuerzo Manual en más de un 80%</h3>
+                        <p>Libera a los ingenieros de datos y analistas de la tarea tediosa de escribir pruebas,
+                            permitiéndoles enfocarse en desarrollar nuevas funcionalidades y optimizar los procesos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Agilidad y Escalabilidad</h3>
+                        <p>Permite a los equipos de datos desarrollar y modificar pipelines con mayor velocidad y
+                            seguridad, sabiendo que el "guardián" de la IA detectará cualquier problema de calidad.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-wrench"></i></div>
+                        <h3>Recomendaciones de Soluciones (bugfix)</h3>
+                        <p>El sistema no solo identifica errores, sino que proporciona sugerencias específicas de
+                            corrección y genera código listo para implementar, acelerando la resolución de problemas y
+                            reduciendo el tiempo de inactividad.</p>
+                    </div>
+                </div>
+
+                <div class="image-full-width">
+                    <h3><i class="fas fa-desktop"></i> Interfaz de Validación y Diagnóstico</h3>
+                    <img src="../assets/img/etl-demo4-interface.png"
+                        alt="Dashboard de validación de datos" class="zoomable" style="width: 80%;">
+                    <p class="image-caption">Vista del sistema mostrando validaciones automáticas y diagnósticos en
+                        tiempo real</p>
+                </div>
+
+                <div class="image-full-width">
+                    <h3><i class="fas fa-code"></i> Sugerencias de Código Automáticas</h3>
+                    <img src="../assets/img/etl-demo4-code.png"
+                        alt="Generación automática de código de corrección" class="zoomable" style="width: 80%;">
+                    <p class="image-caption">La IA genera código específico para solucionar problemas detectados</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <i class="fas fa-chevron-down"></i> Desplázate para ver más contenido
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="navigation">
+        <div class="nav-left">
+            <p class="copyright">© 2025 Dicsys SA.</p>
+        </div>
+
+        <div class="nav-center">
+            <button id="prevBtn" class="nav-btn" disabled>
+                <i class="fas fa-chevron-left"></i> Anterior
+            </button>
+
+            <div class="dots-container" id="dotsContainer"></div>
+
+            <button id="nextBtn" class="nav-btn">
+                Siguiente <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="nav-right">
+            <a href="../demos.html" class="nav-btn" style="text-decoration: none;">
+                <i class="fas fa-home"></i> Volver al Índice
+            </a>
+        </div>
+    </div>
+
+    <!-- Image Zoom Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="zoom-controls">
+            <button id="zoomIn"><i class="fas fa-search-plus"></i></button>
+            <button id="zoomOut"><i class="fas fa-search-minus"></i></button>
+            <button id="zoomReset"><i class="fas fa-compress"></i></button>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
+
