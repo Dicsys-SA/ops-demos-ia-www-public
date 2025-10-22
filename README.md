@@ -1,1 +1,5 @@
-# ops-demos-ia-www-public.github.io
+---
+layout: none
+---
+
+<meta http-equiv="refresh" content="0; url=demos.html">
