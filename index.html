@@ -17,6 +17,9 @@
             --gradient-primary: linear-gradient(135deg, #5522AA 0%, #000077 50%, #000033 100%);
             --gradient-secondary: linear-gradient(135deg, #55BBCC 0%, #5522AA 100%);
             --gradient-accent: linear-gradient(135deg, #EE8844 0%, #FF77AA 100%);
+
+            --gradient-btn-activo: linear-gradient(135deg, #E0D224 0%, #DA8928 100%);
+            --gradient-btn-inactivo: linear-gradient(135deg, #037DAA 0%, #1C4787 100%);
         }
 
         * {
@@ -82,7 +85,7 @@
             margin-bottom: 10px;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: dimgray;
             background-clip: text;
         }
 
@@ -157,7 +160,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--gradient-secondary);
+            background: var(--gradient-btn-inactivo);
             color: white;
             text-decoration: none;
             padding: 12px 25px;
@@ -168,7 +171,7 @@
         }
 
         .demo-link:hover {
-            background: var(--gradient-accent);
+            background: var(--gradient-btn-activo);
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(238, 136, 68, 0.4);
         }
@@ -187,7 +190,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--gradient-primary);
+            background: var(--gradient-btn-inactivo);
             color: white;
             text-decoration: none;
             padding: 18px 40px;
@@ -199,7 +202,7 @@
         }
 
         .assessment-btn:hover {
-            background: var(--gradient-accent);
+            background: var(--gradient-btn-activo);
             transform: translateY(-5px);
             box-shadow: 0 12px 35px rgba(238, 136, 68, 0.4);
         }
@@ -244,7 +247,7 @@
 
     <div class="container">
         <div class="page-header">
-            <h1><i class="fas fa-rocket"></i> Soluciones IA</h1>
+            <h1 class="grisoscuro">Soluciones IA</h1>
             <p>Explora nuestras soluciones de inteligencia artificial para diferentes áreas de negocio</p>
         </div>
 
@@ -254,13 +257,13 @@
                 <img src="assets/img/intro.png" alt="Screening CVs con IA" class="demo-image">
                 <div class="demo-content">
                     <span class="demo-type"><i class="fas fa-robot"></i> Agente Autónomo</span>
-                    <h2 class="demo-title">Screening de CVs con Inteligencia Artificial</h2>
+                    <h2 class="demo-title"> Screening de CVs con IA</h2>
                     <p class="demo-description">
                         Sistema de screening de CVs basado en inteligencia artificial para agilizar la etapa inicial de
                         reclutamiento mediante la clasificación y preselección automática de candidatos.
                     </p>
                     <a href="demo1/index.html" class="demo-link">
-                        Ver Demo <i class="fas fa-arrow-right"></i>
+                        Detalle <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -270,13 +273,13 @@
                 <img src="assets/img/hr-chatbot.png" alt="Chatbot HR Assistant" class="demo-image">
                 <div class="demo-content">
                     <span class="demo-type"><i class="fas fa-comments"></i> Chatbot Conversacional</span>
-                    <h2 class="demo-title">Chatbot HR Assistant</h2>
+                    <h2 class="demo-title">Asistente HR inteligente</h2>
                     <p class="demo-description">
                         Asistente virtual inteligente que automatiza respuestas a consultas frecuentes de RRHH sobre
                         licencias, recibos, normativas internas y capacitaciones, reduciendo tiempos de respuesta.
                     </p>
                     <a href="demo2/index.html" class="demo-link">
-                        Ver Demo <i class="fas fa-arrow-right"></i>
+                        Detalle <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -286,13 +289,13 @@
                 <img src="assets/img/hojas.png" alt="Generación de Documentación Técnica" class="demo-image">
                 <div class="demo-content">
                     <span class="demo-type"><i class="fas fa-file-alt"></i> RAG (Retrieval-Augmented Generation)</span>
-                    <h2 class="demo-title">Generación de Documentación Técnica con IA</h2>
+                    <h2 class="demo-title">Gestor documental inteligente</h2>
                     <p class="demo-description">
                         Sistema RAG que procesa documentos complejos como pliegos de licitaciones, contratos y manuales
                         técnicos, extrayendo información clave y generando respuestas precisas.
                     </p>
                     <a href="demo3/index.html" class="demo-link">
-                        Ver Demo <i class="fas fa-arrow-right"></i>
+                        Detalle <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -302,13 +305,13 @@
                 <img src="assets/img/producto-demo4.png" alt="Automatización de Pruebas ETL" class="demo-image">
                 <div class="demo-content">
                     <span class="demo-type"><i class="fas fa-cogs"></i> Agente de Validación</span>
-                    <h2 class="demo-title">Automatización de Pruebas y Validaciones de Procesos</h2>
+                    <h2 class="demo-title">Inspector automatizado de procesos</h2>
                     <p class="demo-description">
                         Solución que automatiza la validación de procesos ETL/ELT, detectando errores silenciosos y
                         garantizando la calidad de datos antes de que impacten en reportes de negocio.
                     </p>
                     <a href="demo4/index.html" class="demo-link">
-                        Ver Demo <i class="fas fa-arrow-right"></i>
+                        Detalle <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -318,13 +321,13 @@
                 <img src="assets/img/marketing.png" alt="Motor de Contenido Automático" class="demo-image">
                 <div class="demo-content">
                     <span class="demo-type"><i class="fas fa-magic"></i> Agente de Generación de Contenido</span>
-                    <h2 class="demo-title">Motor de Contenido Automático para Redes Sociales</h2>
+                    <h2 class="demo-title">Generador de contenidos multicanal</h2>
                     <p class="demo-description">
                         Plataforma que automatiza la creación y adaptación de contenido para múltiples canales
                         digitales, manteniendo consistencia de marca y alta frecuencia de publicación.
                     </p>
                     <a href="demo5/index.html" class="demo-link">
-                        Ver Demo <i class="fas fa-arrow-right"></i>
+                        Detalle <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -334,13 +337,13 @@
                 <img src="assets/img/producto-contabilidad.png" alt="Verificación de Comprobantes" class="demo-image">
                 <div class="demo-content">
                     <span class="demo-type"><i class="fas fa-eye"></i> Vision AI</span>
-                    <h2 class="demo-title">Verificación automática de Comprobantes con Vision AI</h2>
+                    <h2 class="demo-title">Sistema de validación fiscal con Vision IA</h2>
                     <p class="demo-description">
                         Sistema de visión artificial que automatiza la extracción y validación de datos de comprobantes
                         fiscales, eliminando errores manuales y acelerando el ciclo de pago.
                     </p>
                     <a href="demo6/index.html" class="demo-link">
-                        Ver Demo <i class="fas fa-arrow-right"></i>
+                        Detalle <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>

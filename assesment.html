@@ -61,8 +61,8 @@
             align-items: center;
             justify-content: space-between;
             color: var(--color-primary-dark);
-            margin-bottom: 40px;
-            padding: 40px 0;
+            margin-bottom: 20px;
+            padding: 10px 0;
         }
 
         .header-logo {
@@ -82,7 +82,7 @@
             text-shadow: none;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: dimgray;
             background-clip: text;
         }
 
@@ -155,12 +155,44 @@
             font-size: 1.3rem;
             margin-bottom: 15px;
             font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: color 0.3s ease;
+        }
+
+        .subsection h3:hover {
+            color: var(--color-primary-purple);
+        }
+
+        .subsection h3::after {
+            content: "▼";
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .subsection h3.collapsed::after {
+            transform: rotate(-90deg);
         }
 
         .subsection p {
             color: #4a5568;
             font-size: 1.1rem;
             margin-bottom: 15px;
+        }
+
+        .subsection-content {
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            opacity: 1;
+        }
+
+        .subsection-content.collapsed {
+            max-height: 0;
+            opacity: 0;
         }
 
         .feature-list {
@@ -304,15 +336,32 @@
         .nav-btn:hover i {
             transform: rotate(-15deg) scale(1.1);
         }
+
+        .header-logo {
+            padding: 10px 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .header-logo img {
+            max-height: 80px;
+            padding: 10 40 0 0;
+            top: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="header-logo">
+        <img src="assets/img/dicsys_full_color_g.svg" class="header-logo" />
+    </div>
     <div class="container">
         <div class="header">
-            <img src="assets/img/dicsys_full_color_g.svg" class="header-logo" />
             <div class="header-content">
-                <h1><span style="background: none; -webkit-text-fill-color: initial;">🤖</span> Assessment de IA</h1>
+                <h1 class="grisoscuro"><span style="background: none; -webkit-text-fill-color: initial;"></span>
+                    Assessment de IA</h1>
                 <p>Descubre el potencial de la IA en tu organización con Dicsys</p>
             </div>
         </div>
@@ -326,47 +375,56 @@
 
                 <div class="subsection">
                     <h3>Alcance del Assessment</h3>
-                    <ul class="feature-list">
-                        <li>Entrevistas con Roles Clave (3 a 7 personas)</li>
-                        <li>Relevamiento de 2 a 3 Procesos Core</li>
-                        <li>Validación Superficial de Datos</li>
-                    </ul>
+                    <div class="subsection-content">
+                        <ul class="feature-list">
+                            <li>Entrevistas con Roles Clave (3 a 7 personas)</li>
+                            <li>Relevamiento de 2 a 3 Procesos Core</li>
+                            <li>Validación Superficial de Datos</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="subsection">
                     <h3>Análisis Integral de Procesos/Datos</h3>
-                    <p>Realizamos un diagnóstico completo de los casos seleccionados, identificando oportunidades de
-                        optimización y automatización mediante IA.</p>
-                    <ul class="feature-list">
-                        <li>Auditoría de fuentes de datos existentes</li>
-                        <li>Evaluación de calidad y consistencia de datos</li>
-                        <li>Identificación de gaps y oportunidades</li>
-                        <li>Análisis de procesos actuales</li>
-                    </ul>
+                    <div class="subsection-content">
+                        <p>Realizamos un diagnóstico completo de los casos seleccionados, identificando oportunidades de
+                            optimización y automatización mediante IA.</p>
+                        <ul class="feature-list">
+                            <li>Auditoría de fuentes de datos existentes</li>
+                            <li>Evaluación de calidad y consistencia de datos</li>
+                            <li>Identificación de gaps y oportunidades</li>
+                            <li>Análisis de procesos actuales</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="subsection">
                     <h3>Evaluación de Casos de Uso IA</h3>
-                    <p>Identificamos los casos de uso más prometedores donde la IA puede generar valor inmediato en tu
-                        organización.</p>
-                    <ul class="feature-list">
-                        <li>Custom AI Agent</li>
-                        <li>Automatización de procesos</li>
-                        <li>Análisis de patrones y anomalías</li>
-                        <li>Optimización de recursos</li>
-                    </ul>
+                    <div class="subsection-content">
+                        <p>Identificamos los casos de uso más prometedores donde la IA puede generar valor inmediato en
+                            tu
+                            organización.</p>
+                        <ul class="feature-list">
+                            <li>Custom AI Agent</li>
+                            <li>Automatización de procesos</li>
+                            <li>Análisis de patrones y anomalías</li>
+                            <li>Optimización de recursos</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="subsection">
                     <h3>Arquitectura y Roadmap Tecnológico</h3>
-                    <p>Diseñamos la arquitectura óptima para implementar soluciones de IA y creamos un roadmap
-                        estratégico.</p>
-                    <ul class="feature-list">
-                        <li>Diseño de arquitectura de datos</li>
-                        <li>Selección de tecnologías IA</li>
-                        <li>Planificación de fases de implementación</li>
-                        <li>Estimación de beneficios</li>
-                    </ul>
+                    <div class="subsection-content">
+                        <p>Diseñamos la arquitectura óptima para implementar soluciones de IA y creamos un roadmap
+                            estratégico.</p>
+                        <ul class="feature-list">
+                            <li>Diseño de arquitectura de datos</li>
+                            <li>Selección de tecnologías IA</li>
+                            <li>Planificación de fases de implementación</li>
+                            <li>Estimación de beneficios</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="highlight-box">
@@ -383,35 +441,42 @@
 
                 <div class="subsection">
                     <h3>Informe Ejecutivo de Assessment</h3>
-                    <p>Documento estratégico con hallazgos clave y recomendaciones para la alta dirección.</p>
-                    <ul class="feature-list">
-                        <li>Estado actual vs. potencial de IA</li>
-                        <li>Casos de uso priorizados por impacto</li>
-                        <li>Roadmap estratégico a 2-6 meses</li>
-                    </ul>
+                    <div class="subsection-content">
+                        <p>Documento estratégico con hallazgos clave y recomendaciones para la alta dirección.</p>
+                        <ul class="feature-list">
+                            <li>Estado actual vs. potencial de IA</li>
+                            <li>Casos de uso priorizados por impacto</li>
+                            <li>Roadmap estratégico a 2-6 meses</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="subsection">
                     <h3>Prueba de Concepto</h3>
-                    <p>Demostración práctica de una solución de IA que valide la viabilidad técnica del <u>caso de uso
-                            priorizado.</u></p>
-                    <ul class="feature-list">
-                        <li>Modelo de AI con datos de muestra</li>
-                        <li>Plataforma/Dashboard interactivo de resultados</li>
-                        <li>API funcional para integración</li>
-                        <li>Documentación técnica completa</li>
-                    </ul>
+                    <div class="subsection-content">
+                        <p>Demostración práctica de una solución de IA que valide la viabilidad técnica del <u>caso de
+                                uso
+                                priorizado.</u></p>
+                        <ul class="feature-list">
+                            <li>Modelo de AI con datos de muestra</li>
+                            <li>Plataforma/Dashboard interactivo de resultados</li>
+                            <li>API funcional para integración</li>
+                            <li>Documentación técnica completa</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="subsection">
                     <h3>Plan de Implementación Detallado</h3>
-                    <p>Hoja de ruta práctica para llevar las soluciones de IA a producción.</p>
-                    <ul class="feature-list">
-                        <li>Arquitectura técnica recomendada</li>
-                        <li>Cronograma de implementación</li>
-                        <li>Recursos y presupuesto necesarios</li>
-                        <li>Métricas de éxito y KPIs</li>
-                    </ul>
+                    <div class="subsection-content">
+                        <p>Hoja de ruta práctica para llevar las soluciones de IA a producción.</p>
+                        <ul class="feature-list">
+                            <li>Arquitectura técnica recomendada</li>
+                            <li>Cronograma de implementación</li>
+                            <li>Recursos y presupuesto necesarios</li>
+                            <li>Métricas de éxito y KPIs</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="highlight-box">
@@ -422,7 +487,7 @@
         </div>
 
         <div style="text-align: center; margin: 40px 0;">
-            <a href="demos.html" class="nav-btn">
+            <a href="index.html" class="nav-btn">
                 <i class="fas fa-home"></i> Volver al Índice
             </a>
         </div>
@@ -451,6 +516,28 @@
                 section.style.transform = 'translateY(20px)';
                 section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(section);
+            });
+
+            // Funcionalidad de colapsar/expandir subsecciones
+            const subsectionHeaders = document.querySelectorAll('.subsection h3');
+            const subsectionContents = document.querySelectorAll('.subsection-content');
+
+            // Inicializar todas las subsecciones como contraídas
+            subsectionHeaders.forEach(header => {
+                header.classList.add('collapsed');
+            });
+            subsectionContents.forEach(content => {
+                content.classList.add('collapsed');
+            });
+
+            subsectionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+
+                    // Toggle collapsed class
+                    this.classList.toggle('collapsed');
+                    content.classList.toggle('collapsed');
+                });
             });
 
             // Efecto hover en las subsecciones
