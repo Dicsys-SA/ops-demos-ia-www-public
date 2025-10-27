@@ -35,7 +35,6 @@ function init() {
     setupImageZoom();
     setupScrollIndicator();
     setupHeaderScroll();
-    setupDebugPanel();
     console.log('✅ Presentación Dicsys inicializada correctamente');
     console.log(`📄 Slides detectados: ${config.mainSlides.length}`);
 }
@@ -358,66 +357,6 @@ window.addEventListener('resize', debounce(() => {
     console.log('🔄 Ventana redimensionada');
 }, 250));
 
-// ===== DEBUG PANEL =====
-function setupDebugPanel() {
-    const debugContent = document.getElementById('debugContent');
-    const header = document.getElementById('mainHeader');
-    const slidesContainer = document.querySelector('.slides-container');
-
-    function updateDebug() {
-        if (!debugContent || !header) return;
-
-        const headerStyles = window.getComputedStyle(header);
-        const headerRect = header.getBoundingClientRect();
-        const bodyHeight = document.body.scrollHeight;
-        const windowHeight = window.innerHeight;
-
-        debugContent.innerHTML = `
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Header Position:</strong><br>
-                ${headerStyles.position}
-            </div>
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Header Rect Top:</strong><br>
-                ${headerRect.top.toFixed(2)}px
-            </div>
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Window Scroll Y:</strong><br>
-                ${window.scrollY}px
-            </div>
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Container Scroll:</strong><br>
-                ${slidesContainer ? slidesContainer.scrollTop : 0}px
-            </div>
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Body Height:</strong><br>
-                ${bodyHeight}px
-            </div>
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Window Height:</strong><br>
-                ${windowHeight}px
-            </div>
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Scrollable:</strong><br>
-                ${bodyHeight > windowHeight ? 'YES' : 'NO'}
-            </div>
-            <div style="margin-bottom: 8px;">
-                <strong style="color: #EE8844;">Current Slide:</strong><br>
-                ${config.currentSlide}
-            </div>
-        `;
-    }
-
-    // Actualizar cada 500ms
-    setInterval(updateDebug, 500);
-    updateDebug();
-
-    // También actualizar en scroll
-    window.addEventListener('scroll', updateDebug);
-    if (slidesContainer) {
-        slidesContainer.addEventListener('scroll', updateDebug);
-    }
-}
 
 // ===== EXPORTAR FUNCIONES GLOBALES (OPCIONAL) =====
 window.presentationAPI = {
