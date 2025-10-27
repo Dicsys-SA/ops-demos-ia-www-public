@@ -25,7 +25,7 @@
     --gradient-secondary: linear-gradient(135deg, #55BBCC 0%, #5522AA 100%);
     --gradient-accent: linear-gradient(135deg, #EE8844 0%, #FF77AA 100%);
 
-    --gradient-btn-activo: linear-gradient(135deg, #E0D224 0%, #DA8928 100%);
+    --gradient-btn-activo: linear-gradient(135deg, #538F41 0%, #43A9D5 100%);
     --gradient-btn-inactivo: linear-gradient(135deg, #037DAA 0%, #1C4787 100%);
 }
 
@@ -216,7 +216,7 @@ h3 i {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 51, 0.1);
-    border: 2px solid rgba(85, 34, 170, 0.2);
+    border: 2px solid rgba(0, 109, 250, 0.32);
     margin-bottom: 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -476,7 +476,7 @@ h3 i {
     border-radius: 16px;
     padding: 20px;
     text-align: center;
-    border: 2px solid rgba(85, 34, 170, 0.2);
+    border: 2px solid rgba(0, 109, 250, 0.32);
     box-shadow: 0 4px 15px rgba(0, 0, 51, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
