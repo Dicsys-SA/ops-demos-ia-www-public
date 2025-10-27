@@ -10,8 +10,14 @@
 </head>
 
 <body>
+    <!-- Debug Panel -->
+    <div id="debugPanel" style="position: fixed; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: white; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 12px; z-index: 9999; max-width: 300px;">
+        <div style="font-weight: bold; margin-bottom: 10px; color: #55BBCC;">🔍 DEBUG INFO</div>
+        <div id="debugContent"></div>
+    </div>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="mainHeader">
         <img src="../assets/img/dicsys_full_color_g.svg" alt="Dicsys Logo" class="logo">
     </header>
 

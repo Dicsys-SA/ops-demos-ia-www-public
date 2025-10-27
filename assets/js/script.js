@@ -22,7 +22,8 @@ const elements = {
     zoomInBtn: document.getElementById('zoomIn'),
     zoomOutBtn: document.getElementById('zoomOut'),
     zoomResetBtn: document.getElementById('zoomReset'),
-    scrollIndicator: document.getElementById('scrollIndicator')
+    scrollIndicator: document.getElementById('scrollIndicator'),
+    header: document.querySelector('.header')
 };
 
 // ===== INICIALIZACIÓN =====
@@ -33,6 +34,8 @@ function init() {
     updateNavigation();
     setupImageZoom();
     setupScrollIndicator();
+    setupHeaderScroll();
+    setupDebugPanel();
     console.log('✅ Presentación Dicsys inicializada correctamente');
     console.log(`📄 Slides detectados: ${config.mainSlides.length}`);
 }
@@ -43,7 +46,7 @@ function detectSlides() {
     config.mainSlides = Array.from(allSlides).map(slide => {
         return parseInt(slide.getAttribute('data-slide'));
     }).sort((a, b) => a - b);
-    
+
     if (config.mainSlides.length === 0) {
         console.error('❌ No se encontraron slides');
     }
@@ -52,22 +55,22 @@ function detectSlides() {
 // ===== CREAR DOTS DE NAVEGACIÓN =====
 function createDots() {
     elements.dotsContainer.innerHTML = '';
-    
+
     config.mainSlides.forEach((slideNum, index) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         dot.setAttribute('data-slide', slideNum);
         dot.setAttribute('data-index', index);
         dot.setAttribute('title', `Ir a slide ${index + 1}`);
-        
+
         if (index === 0) {
             dot.classList.add('active');
         }
-        
+
         dot.addEventListener('click', () => {
             goToSlideByIndex(index);
         });
-        
+
         elements.dotsContainer.appendChild(dot);
     });
 }
@@ -79,10 +82,10 @@ function attachEventListeners() {
     // Botones de navegación
     elements.prevBtn.addEventListener('click', previousSlide);
     elements.nextBtn.addEventListener('click', nextSlide);
-    
+
     // Navegación con teclado
     document.addEventListener('keydown', handleKeyPress);
-    
+
     // Modal de zoom
     elements.closeModal.addEventListener('click', closeImageModal);
     elements.imageModal.addEventListener('click', (e) => {
@@ -90,7 +93,7 @@ function attachEventListeners() {
             closeImageModal();
         }
     });
-    
+
     // Controles de zoom
     elements.zoomInBtn.addEventListener('click', zoomIn);
     elements.zoomOutBtn.addEventListener('click', zoomOut);
@@ -103,33 +106,33 @@ function goToSlideByIndex(index) {
     if (index < 0 || index >= config.mainSlides.length) {
         return;
     }
-    
+
     const slideNum = config.mainSlides[index];
-    
+
     // Ocultar slide actual
     document.querySelector('.slide.active')?.classList.remove('active');
-    
+
     // Mostrar nuevo slide
     const targetSlide = document.querySelector(`.slide[data-slide="${slideNum}"]`);
     if (targetSlide) {
         targetSlide.classList.add('active');
-        
+
         // Scroll suave al inicio del slide
         setTimeout(() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 100);
-        
+
         // Resetear scroll del contenido si es scrollable
         const slideContent = targetSlide.querySelector('.slide-content');
         if (slideContent && slideContent.classList.contains('scrollable')) {
             slideContent.scrollTop = 0;
         }
     }
-    
+
     // Actualizar estado
     config.currentSlide = slideNum;
     config.currentMainIndex = index;
-    
+
     // Actualizar UI
     updateNavigation();
 }
@@ -153,7 +156,7 @@ function updateNavigation() {
     // Actualizar botones
     elements.prevBtn.disabled = config.currentMainIndex === 0;
     elements.nextBtn.disabled = config.currentMainIndex === config.mainSlides.length - 1;
-    
+
     // Actualizar dots
     document.querySelectorAll('.dot').forEach((dot, index) => {
         dot.classList.toggle('active', index === config.currentMainIndex);
@@ -164,7 +167,7 @@ function updateNavigation() {
 
 // ===== NAVEGACIÓN CON TECLADO =====
 function handleKeyPress(e) {
-    switch(e.key) {
+    switch (e.key) {
         case 'ArrowLeft':
             previousSlide();
             break;
@@ -183,9 +186,9 @@ function handleKeyPress(e) {
 // ===== ZOOM DE IMÁGENES =====
 function setupImageZoom() {
     const zoomableImages = document.querySelectorAll('.zoomable');
-    
+
     zoomableImages.forEach(img => {
-        img.addEventListener('click', function() {
+        img.addEventListener('click', function () {
             openImageModal(this.src, this.alt);
         });
     });
@@ -197,12 +200,12 @@ function setupScrollIndicator() {
     function checkScrollable() {
         const activeSlide = document.querySelector('.slide.active');
         if (!activeSlide) return;
-        
+
         const slideContent = activeSlide.querySelector('.slide-content');
         if (!slideContent) return;
-        
+
         const isScrollable = slideContent.scrollHeight > slideContent.clientHeight;
-        
+
         if (isScrollable) {
             elements.scrollIndicator.classList.add('show');
             // Ocultar después de 3 segundos
@@ -213,7 +216,7 @@ function setupScrollIndicator() {
             elements.scrollIndicator.classList.remove('show');
         }
     }
-    
+
     // Verificar al cambiar de slide
     const observer = new MutationObserver(checkScrollable);
     observer.observe(document.querySelector('.slides-container'), {
@@ -222,9 +225,18 @@ function setupScrollIndicator() {
         attributes: true,
         attributeFilter: ['class']
     });
-    
+
     // Verificar inicialmente
     setTimeout(checkScrollable, 500);
+}
+
+// ===== HEADER SCROLL =====
+function setupHeaderScroll() {
+    // Header siempre visible - no se oculta con scroll
+    if (elements.header) {
+        elements.header.style.opacity = '1';
+        elements.header.style.pointerEvents = 'auto';
+    }
 }
 
 function openImageModal(src, alt) {
@@ -233,7 +245,7 @@ function openImageModal(src, alt) {
     elements.imageModal.classList.add('show');
     config.zoomLevel = 1;
     updateImageZoom();
-    
+
     // Prevenir scroll del body
     document.body.style.overflow = 'hidden';
 }
@@ -241,7 +253,7 @@ function openImageModal(src, alt) {
 function closeImageModal() {
     elements.imageModal.classList.remove('show');
     config.zoomLevel = 1;
-    
+
     // Restaurar scroll del body
     document.body.style.overflow = '';
 }
@@ -285,17 +297,17 @@ function debounce(func, wait) {
 // Agregar indicador de carga para imágenes
 function addImageLoadingIndicators() {
     const images = document.querySelectorAll('img');
-    
+
     images.forEach(img => {
         if (!img.complete) {
             img.style.opacity = '0.5';
-            
-            img.addEventListener('load', function() {
+
+            img.addEventListener('load', function () {
                 this.style.opacity = '1';
                 this.style.transition = 'opacity 0.3s ease';
             });
-            
-            img.addEventListener('error', function() {
+
+            img.addEventListener('error', function () {
                 console.error(`Error al cargar imagen: ${this.src}`);
                 this.style.opacity = '0.3';
             });
@@ -307,13 +319,13 @@ function addImageLoadingIndicators() {
 function animateSlideContent() {
     const activeSlide = document.querySelector('.slide.active');
     if (!activeSlide) return;
-    
+
     const cards = activeSlide.querySelectorAll('.card, .benefit-card');
-    
+
     cards.forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
-        
+
         setTimeout(() => {
             card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             card.style.opacity = '1';
@@ -335,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     addImageLoadingIndicators();
     animateSlideContent();
-    
+
     // Log debug info (comentar en producción)
     // logDebugInfo();
 });
@@ -345,6 +357,67 @@ window.addEventListener('resize', debounce(() => {
     // Ajustar elementos si es necesario
     console.log('🔄 Ventana redimensionada');
 }, 250));
+
+// ===== DEBUG PANEL =====
+function setupDebugPanel() {
+    const debugContent = document.getElementById('debugContent');
+    const header = document.getElementById('mainHeader');
+    const slidesContainer = document.querySelector('.slides-container');
+
+    function updateDebug() {
+        if (!debugContent || !header) return;
+
+        const headerStyles = window.getComputedStyle(header);
+        const headerRect = header.getBoundingClientRect();
+        const bodyHeight = document.body.scrollHeight;
+        const windowHeight = window.innerHeight;
+
+        debugContent.innerHTML = `
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Header Position:</strong><br>
+                ${headerStyles.position}
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Header Rect Top:</strong><br>
+                ${headerRect.top.toFixed(2)}px
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Window Scroll Y:</strong><br>
+                ${window.scrollY}px
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Container Scroll:</strong><br>
+                ${slidesContainer ? slidesContainer.scrollTop : 0}px
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Body Height:</strong><br>
+                ${bodyHeight}px
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Window Height:</strong><br>
+                ${windowHeight}px
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Scrollable:</strong><br>
+                ${bodyHeight > windowHeight ? 'YES' : 'NO'}
+            </div>
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #EE8844;">Current Slide:</strong><br>
+                ${config.currentSlide}
+            </div>
+        `;
+    }
+
+    // Actualizar cada 500ms
+    setInterval(updateDebug, 500);
+    updateDebug();
+
+    // También actualizar en scroll
+    window.addEventListener('scroll', updateDebug);
+    if (slidesContainer) {
+        slidesContainer.addEventListener('scroll', updateDebug);
+    }
+}
 
 // ===== EXPORTAR FUNCIONES GLOBALES (OPCIONAL) =====
 window.presentationAPI = {

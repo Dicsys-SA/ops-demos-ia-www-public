@@ -46,22 +46,19 @@ body {
     background: #FFFFFF;
     color: var(--color-dark);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     overflow-x: hidden;
 }
 
 /* ===== HEADER ===== */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    padding: 20px 40px;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 51, 0.1);
-    z-index: 1000;
+    padding: 20px 60px;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    z-index: 100;
+    transition: opacity 0.3s ease;
 }
 
 .header .logo {
@@ -69,18 +66,19 @@ body {
     width: auto;
     filter: none;
 }
+
+
 .grisoscuro {
     color: #696969;
 }
 /* ===== SLIDES CONTAINER ===== */
 .slides-container {
-    flex: 1;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 100px 60px 100px 60px;
-    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 60px 100px 60px;
     overflow-x: hidden;
+    min-height: calc(100vh - 100px);
 }
 
 .slide {
@@ -88,6 +86,7 @@ body {
     width: 100%;
     max-width: 1400px;
     min-height: calc(100vh - 200px);
+    padding-top: 20px;
     animation: fadeIn 0.6s ease-in-out;
 }
 
@@ -112,8 +111,9 @@ body {
 }
 
 .slide-content.scrollable {
-    overflow-y: auto;
-    max-height: calc(100vh - 200px);
+    /* Scroll deshabilitado - el scroll es del window completo */
+    overflow-y: visible;
+    max-height: none;
 }
 
 /* Estilos del scrollbar */

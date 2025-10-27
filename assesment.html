@@ -16,6 +16,8 @@
             --gradient-primary: linear-gradient(135deg, #5522AA 0%, #000077 50%, #000033 100%);
             --gradient-secondary: linear-gradient(135deg, #55BBCC 0%, #5522AA 100%);
             --gradient-accent: linear-gradient(135deg, #EE8844 0%, #FF77AA 100%);
+            --gradient-btn-activo: linear-gradient(135deg, #E0D224 0%, #DA8928 100%);
+            --gradient-btn-inactivo: linear-gradient(135deg, #037DAA 0%, #1C4787 100%);
         }
 
         * {
@@ -302,39 +304,27 @@
         .nav-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: var(--gradient-primary);
+            justify-content: center;
+            background: var(--gradient-btn-inactivo);
             color: white;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(85, 34, 170, 0.3);
-            margin: 40px auto;
-            text-align: center;
-            border: 2px solid transparent;
+            box-shadow: 0 8px 25px rgba(85, 34, 170, 0.3);
         }
 
         .nav-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(85, 34, 170, 0.5);
-            border-color: var(--color-accent-cyan);
-            background: var(--gradient-secondary);
-        }
-
-        .nav-btn:active {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(85, 34, 170, 0.4);
+            background: var(--gradient-btn-activo);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(238, 136, 68, 0.4);
         }
 
         .nav-btn i {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-btn:hover i {
-            transform: rotate(-15deg) scale(1.1);
+            margin-right: 10px;
+            font-size: 1.3rem;
         }
 
         .header-logo {
